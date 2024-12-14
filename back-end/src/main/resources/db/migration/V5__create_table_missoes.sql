@@ -1,0 +1,6 @@
+CREATE TABLE tb_missao(
+id UUID PRIMARY KEY,
+nome VARCHAR(255),
+descricao VARCHAR(500),
+rank VARCHAR(3)
+)
