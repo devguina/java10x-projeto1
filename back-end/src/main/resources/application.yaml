@@ -1,16 +1,16 @@
 server:
-  port: 9090
+  port: SERVER_PORT
   servlet:
-    context-path: /projeto1
+    context-path: ${CONTEXT_PATH}
 
 spring:
   application:
     name: projeto1
 
   datasource:
-    username: postgres
-    password: postgres
-    url: jdbc:postgresql://localhost:5428/projeto1
+    username: ${DATABASE_LOGIN}
+    password: ${DATABASE_PASSWORD}
+    url: ${DATABASE_URL}
     driver-class-name: org.postgresql.Driver
 
   jpa:
@@ -23,5 +23,5 @@ spring:
 
   flyway:
     enabled: true
-    locations: classpath:db/migration
+    locations: ${MIGRATIONS_PATH}
     baseline-on-migrate: true
