@@ -2,6 +2,7 @@ package com.java10x.projeto1.service;
 
 import com.java10x.projeto1.entity.Ninja;
 import com.java10x.projeto1.repository.NinjaRepository;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -9,23 +10,35 @@ import java.util.Optional;
 import java.util.UUID;
 
 @Service
+@RequiredArgsConstructor
 public class NinjaService {
 
-    private NinjaRepository ninjaRepository;
+    private final NinjaRepository ninjaRepository;
 
-    public NinjaService(NinjaRepository ninjaRepository){
-        this.ninjaRepository = ninjaRepository;
-    }
     public Ninja save(Ninja ninja){
         return ninjaRepository.save(ninja);
     }
 
-    public Optional<Ninja> getById(UUID id){
+    public Optional<Ninja> findById(UUID id){
         return ninjaRepository.findById(id);
     }
 
-    public List<Ninja> getAllNinjas(){
+    public List<Ninja> findAll(){
         return ninjaRepository.findAll();
+    }
+
+    public Optional<Ninja> update(UUID id, Ninja ninja){
+        Optional<Ninja> optionalNinja = ninjaRepository.findById(id);
+        if(optionalNinja.isPresent()){
+            Ninja updatedNinja = optionalNinja.get();
+            updatedNinja.setName(ninja.getName());
+            updatedNinja.setCla(ninja.getCla());
+            updatedNinja.setPowerAtk(ninja.getPowerAtk());
+            updatedNinja.setPowerDfs(ninja.getPowerDfs());
+            updatedNinja.setPowerDfs(ninja.getPowerDfs());
+            return Optional.of(updatedNinja);
+        }
+        return Optional.empty();
     }
 
     public void delete (UUID id){
