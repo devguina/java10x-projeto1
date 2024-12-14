@@ -51,4 +51,10 @@ public class NinjaController {
                 .orElse(ResponseEntity.notFound().build());
     }
 
+    @DeleteMapping("/delete/{id}")
+    public ResponseEntity<Void> delete (@PathVariable UUID id){
+        ninjaService.delete(id);
+        return ResponseEntity.noContent().build();
+    }
+
 }

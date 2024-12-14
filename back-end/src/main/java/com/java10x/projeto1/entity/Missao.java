@@ -12,4 +12,6 @@ import lombok.*;
 @Entity
 @Table(name = "tb_missao")
 public class Missao {
+
+
 }
