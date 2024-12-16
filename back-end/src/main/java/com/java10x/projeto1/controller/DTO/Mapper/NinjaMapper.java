@@ -11,7 +11,7 @@ public class NinjaMapper {
     public static Ninja toNinja(NinjaRequest request){
         return Ninja
                 .builder()
-                .name(request.name())
+                .nome(request.nome())
                 .cla(request.cla())
                 .powerAtk(request.powerAtk())
                 .powerDfs(request.powerDfs())
@@ -23,7 +23,7 @@ public class NinjaMapper {
         return NinjaResponse
                 .builder()
                 .id(ninja.getId())
-                .name(ninja.getName())
+                .nome(ninja.getNome())
                 .cla(ninja.getCla())
                 .powerAtk(ninja.getPowerAtk())
                 .powerDfs(ninja.getPowerDfs())

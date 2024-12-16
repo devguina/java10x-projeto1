@@ -6,7 +6,7 @@ import java.util.UUID;
 
 @Builder
 public record NinjaResponse(UUID id,
-                            String name,
+                            String nome,
                             String cla,
                             String powerAtk,
                             String powerDfs,

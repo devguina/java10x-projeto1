@@ -31,7 +31,7 @@ public class NinjaService {
         Optional<Ninja> optionalNinja = ninjaRepository.findById(id);
         if(optionalNinja.isPresent()){
             Ninja updatedNinja = optionalNinja.get();
-            updatedNinja.setName(ninja.getName());
+            updatedNinja.setNome(ninja.getNome());
             updatedNinja.setCla(ninja.getCla());
             updatedNinja.setPowerAtk(ninja.getPowerAtk());
             updatedNinja.setPowerDfs(ninja.getPowerDfs());

@@ -19,7 +19,7 @@ public class Ninja {
     private UUID id;
 
     @Column(nullable = false, name = "nome")
-    private String name;
+    private String nome;
 
     @Column(name = "cla")
     private String cla;
