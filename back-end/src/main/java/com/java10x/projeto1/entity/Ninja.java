@@ -18,7 +18,7 @@ public class Ninja {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private UUID id;
 
-    @Column(nullable = false, name = "name")
+    @Column(nullable = false, name = "nome")
     private String name;
 
     @Column(name = "cla")
