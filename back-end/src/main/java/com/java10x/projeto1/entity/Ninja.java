@@ -32,4 +32,9 @@ public class Ninja {
 
     @Column(nullable = false, name = "power_ninjutsu")
     private String powerNinjutsu;
+
+
+    @ManyToOne
+    @JoinColumn(name = "aldeia_id")
+    private Aldeia aldeia;
 }
