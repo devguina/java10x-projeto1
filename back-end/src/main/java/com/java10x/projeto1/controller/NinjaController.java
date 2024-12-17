@@ -43,6 +43,15 @@ public class NinjaController {
                 .toList());
     }
 
+    // -- return all ninjas by aldeia
+    @GetMapping("/all/aldeia/{id}")
+    public ResponseEntity<List<NinjaResponse>> findByAldeiaId(@PathVariable UUID id){
+        return ResponseEntity.ok(ninjaService.findNinjaByAldeiaId(id)
+                .stream()
+                .map(ninja -> NinjaMapper.toNinjaResponse(ninja))
+                .toList());
+    }
+
     // -- update Ninja
     @PutMapping("/update/{id}")
     public ResponseEntity<NinjaResponse>update(@PathVariable UUID id, @RequestBody NinjaRequest ninjaRequest){
@@ -51,10 +60,10 @@ public class NinjaController {
                 .orElse(ResponseEntity.notFound().build());
     }
 
+    // -- delete ninja by id
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<Void> delete (@PathVariable UUID id){
         ninjaService.delete(id);
         return ResponseEntity.noContent().build();
     }
-
 }

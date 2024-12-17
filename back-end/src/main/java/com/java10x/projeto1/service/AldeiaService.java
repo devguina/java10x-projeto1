@@ -33,7 +33,7 @@ public class AldeiaService {
             Aldeia updatedAldeia = optAldeia.get();
 
             updatedAldeia.setNome(aldeia.getNome());
-            updatedAldeia.setHokakeAtual(aldeia.getHokakeAtual());
+            updatedAldeia.setKageAtual(aldeia.getKageAtual());
             return Optional.of(updatedAldeia);
         }
         return Optional.empty();

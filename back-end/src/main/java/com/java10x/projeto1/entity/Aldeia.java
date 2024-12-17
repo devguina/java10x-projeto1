@@ -24,8 +24,8 @@ public class Aldeia {
     @Column(nullable = false, name = "nome", unique = true)
     private String nome;
 
-    @Column(nullable = false, name = "hokake_atual", unique = true)
-    private String hokakeAtual;
+    @Column(nullable = false, name = "kage_atual", unique = true)
+    private String kageAtual;
 
     // -- relacionamento -> classe pai (aldeia) classe filha (ninja)
     // uma aldeia pode ter vários ninjas mas um ninja só pode ter uma aldeia

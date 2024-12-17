@@ -1,5 +1,7 @@
 package com.java10x.projeto1.controller.DTO.request;
 
-public record AldeiaRequest(String nome,
-                            String hokakeAtual) {
+import jakarta.validation.constraints.NotBlank;
+
+public record AldeiaRequest(@NotBlank String nome,
+                            @NotBlank String kageAtual) {
 }

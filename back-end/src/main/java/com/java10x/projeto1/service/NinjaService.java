@@ -44,4 +44,8 @@ public class NinjaService {
     public void delete (UUID id){
         ninjaRepository.deleteById(id);
     }
+
+    public List<Ninja> findNinjaByAldeiaId(UUID id){
+        return ninjaRepository.findByAldeiaId(id);
+    }
 }

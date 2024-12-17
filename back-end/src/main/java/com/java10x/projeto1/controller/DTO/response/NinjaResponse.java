@@ -1,5 +1,6 @@
 package com.java10x.projeto1.controller.DTO.response;
 
+import com.java10x.projeto1.entity.Aldeia;
 import lombok.Builder;
 
 import java.util.UUID;
@@ -10,5 +11,6 @@ public record NinjaResponse(UUID id,
                             String cla,
                             String powerAtk,
                             String powerDfs,
-                            String powerNinjutsu) {
+                            String powerNinjutsu,
+                            UUID aldeiaId) {
 }

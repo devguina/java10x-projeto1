@@ -1,8 +1,15 @@
 package com.java10x.projeto1.controller.DTO.request;
 
-public record NinjaRequest (String nome,
-                            String cla,
-                            String powerAtk,
-                            String powerDfs,
-                            String powerNinjutsu){
+import com.java10x.projeto1.entity.Aldeia;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+
+import java.util.UUID;
+
+public record NinjaRequest (@NotBlank String nome,
+                            @NotBlank String cla,
+                            @NotBlank String powerAtk,
+                            @NotBlank String powerDfs,
+                            @NotBlank String powerNinjutsu,
+                            @NotNull UUID aldeiaId){
 }

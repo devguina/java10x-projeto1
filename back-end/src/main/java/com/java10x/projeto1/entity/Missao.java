@@ -26,4 +26,6 @@ public class Missao {
 
     @Column(nullable = false, length = 3, name = "rank")
     private String rank;
+
+
 }

@@ -13,7 +13,7 @@ public class AldeiaMapper {
                 .builder()
                 .id(aldeia.getId())
                 .nome(aldeia.getNome())
-                .hokakeAtual(aldeia.getHokakeAtual())
+                .kageAtual(aldeia.getKageAtual())
                 .build();
     }
 
@@ -21,7 +21,7 @@ public class AldeiaMapper {
         return Aldeia
                 .builder()
                 .nome(request.nome())
-                .hokakeAtual(request.hokakeAtual())
+                .kageAtual(request.kageAtual())
                 .build();
     }
 }
