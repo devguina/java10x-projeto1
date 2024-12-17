@@ -1,0 +1,4 @@
+ALTER TABLE tb_ninja
+ADD COLUMN cargo int DEFAULT 0,
+ADD COLUMN rank int DEFAULT 0,
+ADD COLUMN titulo int DEFAULT 0;

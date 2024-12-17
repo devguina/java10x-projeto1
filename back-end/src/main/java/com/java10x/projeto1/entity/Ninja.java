@@ -33,8 +33,24 @@ public class Ninja {
     @Column(nullable = false, name = "power_ninjutsu")
     private String powerNinjutsu;
 
+    @Enumerated(EnumType.ORDINAL) // -- saved in the ENUM position
+    @Column(name = "cargo")
+    private NinjaCargo cargo;
+
+    @Enumerated(EnumType.ORDINAL)
+    @Column(name = "rank")
+    private NinjaRank rank;
+
+    @Column(name = "titulo")
+    private NinjaTitulo titulo;
+
+    // -- relationships
 
     @ManyToOne
     @JoinColumn(name = "aldeia_id")
     private Aldeia aldeia;
+
+    @ManyToOne
+    @JoinColumn(name = "missao_id")
+    private Missao missao;
 }

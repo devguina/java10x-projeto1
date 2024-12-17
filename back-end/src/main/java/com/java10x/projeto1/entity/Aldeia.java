@@ -27,9 +27,7 @@ public class Aldeia {
     @Column(nullable = false, name = "kage_atual", unique = true)
     private String kageAtual;
 
-    // -- relacionamento -> classe pai (aldeia) classe filha (ninja)
-    // uma aldeia pode ter vários ninjas mas um ninja só pode ter uma aldeia
-    // aldeia não depende de ninjas para existir por isso ela é a classe pai
+// -- relationships
 
     @OneToMany(mappedBy = "aldeia" , cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Ninja> ninjas = new ArrayList<>();

@@ -11,5 +11,10 @@ public record NinjaRequest (@NotBlank String nome,
                             @NotBlank String powerAtk,
                             @NotBlank String powerDfs,
                             @NotBlank String powerNinjutsu,
-                            @NotNull UUID aldeiaId){
+                            int rank,
+                            int cargo,
+                            int titulo,
+                           /* UUID missaoId,*/
+                            @NotNull UUID aldeiaId)
+{
 }

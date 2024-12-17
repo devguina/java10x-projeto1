@@ -3,6 +3,8 @@ package com.java10x.projeto1.entity;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 
 @Builder
@@ -27,5 +29,8 @@ public class Missao {
     @Column(nullable = false, length = 3, name = "rank")
     private String rank;
 
+// -- relationships
 
+    @OneToMany(mappedBy = "missao", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<Ninja> ninjas = new ArrayList<>();
 }

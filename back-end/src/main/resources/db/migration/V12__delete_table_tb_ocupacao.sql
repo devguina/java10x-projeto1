@@ -1,0 +1,1 @@
+DROP TABLE tb_ocupacao_ninja;
