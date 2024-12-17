@@ -1,0 +1,2 @@
+ALTER TABLE tb_ninja
+ALTER COLUMN missao_id DROP NOT NULL;

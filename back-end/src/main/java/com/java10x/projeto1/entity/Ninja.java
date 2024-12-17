@@ -21,6 +21,9 @@ public class Ninja {
     @Column(nullable = false, name = "nome")
     private String nome;
 
+    @Column(nullable = false, name = "idade")
+    private int idade;
+
     @Column(name = "cla")
     private String cla;
 
@@ -47,10 +50,10 @@ public class Ninja {
     // -- relationships
 
     @ManyToOne
-    @JoinColumn(name = "aldeia_id")
+    @JoinColumn(name = "aldeia_id",nullable = true)
     private Aldeia aldeia;
 
     @ManyToOne
-    @JoinColumn(name = "missao_id")
+    @JoinColumn(name = "missao_id",nullable = true)
     private Missao missao;
 }

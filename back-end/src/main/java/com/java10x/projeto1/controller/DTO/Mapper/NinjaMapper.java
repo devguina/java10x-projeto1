@@ -2,22 +2,19 @@ package com.java10x.projeto1.controller.DTO.Mapper;
 
 import com.java10x.projeto1.controller.DTO.request.NinjaRequest;
 import com.java10x.projeto1.controller.DTO.response.AldeiaResponse;
+import com.java10x.projeto1.controller.DTO.response.MissaoResponse;
 import com.java10x.projeto1.controller.DTO.response.NinjaResponse;
 import com.java10x.projeto1.entity.*;
-import lombok.RequiredArgsConstructor;
 import lombok.experimental.UtilityClass;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
-
-import java.util.UUID;
 
 @UtilityClass
 public class NinjaMapper {
 
-    public static Ninja toNinja(NinjaRequest request){
+    public static Ninja toNinja(NinjaRequest request) {
         return Ninja
                 .builder()
                 .nome(request.nome())
+                .idade(request.idade())
                 .cla(request.cla())
                 .powerAtk(request.powerAtk())
                 .powerDfs(request.powerDfs())
@@ -25,16 +22,25 @@ public class NinjaMapper {
                 .cargo(NinjaCargo.fromCodigo(request.cargo()))
                 .titulo(NinjaTitulo.fromCodigo(request.titulo()))
                 .rank(NinjaRank.fromCodigo(request.rank()))
-                .aldeia(Aldeia.builder().id(request.aldeiaId()).build())
-              /*  .missao(Missao.builder().id(request.missaoId()).build())*/
+                .aldeia(request.aldeiaId() != null ?
+                        Aldeia
+                                .builder()
+                                .id(request.aldeiaId())
+                                .build() : null)
+                .missao(request.missaoId() != null ?
+                        Missao
+                                .builder()
+                                .id(request.missaoId())
+                                .build() : null)
                 .build();
     }
 
-    public static NinjaResponse toNinjaResponse(Ninja ninja){
+    public static NinjaResponse toNinjaResponse(Ninja ninja) {
         return NinjaResponse
                 .builder()
                 .id(ninja.getId())
                 .nome(ninja.getNome())
+                .idade(ninja.getIdade())
                 .cla(ninja.getCla())
                 .powerAtk(ninja.getPowerAtk())
                 .powerDfs(ninja.getPowerDfs())
@@ -42,8 +48,20 @@ public class NinjaMapper {
                 .cargo(ninja.getCargo().getCodigo())
                 .titulo(ninja.getTitulo().getCodigo())
                 .rank(ninja.getRank().getCodigo())
-                .aldeiaId(ninja.getAldeia().getId())
-              /*  .missaoId(ninja.getMissao().getId())*/
+                .missaoResponse(ninja.getMissao() != null ?
+                        MissaoResponse
+                                .builder()
+                                .id(ninja.getMissao().getId())
+                                .nome(ninja.getMissao().getNome())
+                                .descricao(ninja.getMissao().getDescricao())
+                                .build() : null)
+                .aldeiaResponse(ninja.getAldeia() != null ?
+                        AldeiaResponse
+                                .builder()
+                                .id(ninja.getAldeia().getId())
+                                .nome(ninja.getAldeia().getNome())
+                                .kageAtual(ninja.getAldeia().getKageAtual())
+                                .build() : null)
                 .build();
     }
 }

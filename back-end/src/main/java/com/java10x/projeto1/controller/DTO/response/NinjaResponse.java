@@ -9,6 +9,7 @@ import java.util.UUID;
 @Builder
 public record NinjaResponse(UUID id,
                             String nome,
+                            int idade,
                             String cla,
                             String powerAtk,
                             String powerDfs,
@@ -16,6 +17,6 @@ public record NinjaResponse(UUID id,
                             int rank,
                             int cargo,
                             int titulo,
-                            UUID missaoId,
-                            UUID aldeiaId) {
+                            MissaoResponse missaoResponse,
+                            AldeiaResponse aldeiaResponse) {
 }

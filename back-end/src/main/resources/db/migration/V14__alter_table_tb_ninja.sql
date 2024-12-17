@@ -1,0 +1,2 @@
+ALTER TABLE tb_ninja
+ALTER COLUMN aldeia_id DROP NOT NULL;
