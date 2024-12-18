@@ -14,7 +14,7 @@ public class NinjaMapper {
         return Ninja
                 .builder()
                 .nome(request.nome())
-                .idade(request.idade())
+                .idade(request.idade() != null ? request.idade() : 0)
                 .cla(request.cla())
                 .powerAtk(request.powerAtk())
                 .powerDfs(request.powerDfs())
@@ -40,7 +40,7 @@ public class NinjaMapper {
                 .builder()
                 .id(ninja.getId())
                 .nome(ninja.getNome())
-                .idade(ninja.getIdade())
+                .idade(ninja.getIdade() != null ? ninja.getIdade() : 0)
                 .cla(ninja.getCla())
                 .powerAtk(ninja.getPowerAtk())
                 .powerDfs(ninja.getPowerDfs())

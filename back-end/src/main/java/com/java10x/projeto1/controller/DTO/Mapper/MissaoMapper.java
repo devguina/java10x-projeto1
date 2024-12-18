@@ -21,6 +21,7 @@ public class MissaoMapper {
     public static MissaoResponse toMissaoResponse(Missao missao){
         return MissaoResponse
                 .builder()
+                .id(missao.getId())
                 .nome(missao.getNome())
                 .descricao(missao.getDescricao())
                 .rank(missao.getRank())

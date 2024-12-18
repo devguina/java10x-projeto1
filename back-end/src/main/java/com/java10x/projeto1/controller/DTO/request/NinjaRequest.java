@@ -7,7 +7,7 @@ import jakarta.validation.constraints.NotNull;
 import java.util.UUID;
 
 public record NinjaRequest (@NotBlank String nome,
-                            @NotBlank int idade,
+                            @NotBlank Integer idade,
                             @NotBlank String cla,
                             @NotBlank String powerAtk,
                             @NotBlank String powerDfs,

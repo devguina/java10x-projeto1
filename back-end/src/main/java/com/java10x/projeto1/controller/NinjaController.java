@@ -10,6 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 
 @RequiredArgsConstructor
@@ -63,7 +64,11 @@ public class NinjaController {
     // -- delete ninja by id
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<Void> delete (@PathVariable UUID id){
-        ninjaService.delete(id);
-        return ResponseEntity.noContent().build();
+        Optional<Ninja> optionalNinja = ninjaService.findById(id);
+        if (optionalNinja.isPresent()){
+            ninjaService.delete(id);
+            return ResponseEntity.noContent().build();
+        }
+        return ResponseEntity.notFound().build();
     }
 }

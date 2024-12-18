@@ -22,7 +22,7 @@ public class Ninja {
     private String nome;
 
     @Column(nullable = false, name = "idade")
-    private int idade;
+    private Integer idade;
 
     @Column(name = "cla")
     private String cla;

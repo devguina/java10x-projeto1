@@ -10,6 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 
 @RestController
@@ -53,10 +54,14 @@ public class AldeiaController {
     }
 
     // -- delete aldeia by id
-    @DeleteMapping("/delete{id}")
+    @DeleteMapping("/delete/{id}")
     public ResponseEntity<Void> delete(@PathVariable UUID id){
-         aldeiaService.delete(id);
-         return ResponseEntity.noContent().build();
+        Optional<Aldeia> opt = aldeiaService.findById(id);
+        if(opt.isPresent()){
+            aldeiaService.delete(id);
+            return ResponseEntity.noContent().build();
+        }
+        return ResponseEntity.notFound().build();
     }
 
 

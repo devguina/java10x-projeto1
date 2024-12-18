@@ -10,6 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 
 @RestController
@@ -54,8 +55,12 @@ public class MissaoController {
 
     // -- delete missao by id
     @DeleteMapping("delete/{id}")
-    public ResponseEntity<Void> delete (UUID id){
-        missaoService.delete(id);
-        return ResponseEntity.noContent().build();
+    public ResponseEntity<Void> delete (@PathVariable UUID id){
+        Optional<Missao> opt = missaoService.findById(id);
+        if(opt.isPresent()){
+            missaoService.delete(id);
+            return ResponseEntity.noContent().build();
+        }
+        return ResponseEntity.notFound().build();
     }
 }
