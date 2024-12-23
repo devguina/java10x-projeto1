@@ -2,7 +2,6 @@ package com.java10x.projeto1.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
-import org.w3c.dom.stylesheets.LinkStyle;
 
 import java.util.ArrayList;
 import java.util.List;

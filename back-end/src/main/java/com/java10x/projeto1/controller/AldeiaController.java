@@ -5,6 +5,7 @@ import com.java10x.projeto1.controller.DTO.request.AldeiaRequest;
 import com.java10x.projeto1.controller.DTO.response.AldeiaResponse;
 import com.java10x.projeto1.entity.Aldeia;
 import com.java10x.projeto1.service.AldeiaService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -22,7 +23,7 @@ public class AldeiaController {
 
     // -- create aldeia
     @PostMapping("/create")
-    public ResponseEntity<AldeiaResponse> create(@RequestBody AldeiaRequest request){
+    public ResponseEntity<AldeiaResponse> create(@Valid @RequestBody AldeiaRequest request){
         Aldeia saved = aldeiaService.save(AldeiaMapper.toAldeia(request));
         return ResponseEntity.ok(AldeiaMapper.toAldeiaResponse(saved));
     }
@@ -47,7 +48,7 @@ public class AldeiaController {
 
     // -- update aldeia by id
     @PutMapping("/update/{id}")
-    public ResponseEntity<AldeiaResponse> update (@PathVariable UUID id, @RequestBody AldeiaRequest request){
+    public ResponseEntity<AldeiaResponse> update (@PathVariable UUID id, @Valid @RequestBody AldeiaRequest request){
         return aldeiaService.update(id, AldeiaMapper.toAldeia(request))
                 .map(aldeia -> ResponseEntity.ok(AldeiaMapper.toAldeiaResponse(aldeia)))
                 .orElse(ResponseEntity.notFound().build());

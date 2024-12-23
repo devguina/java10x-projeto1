@@ -3,7 +3,6 @@ package com.java10x.projeto1.controller.DTO.Mapper;
 import com.java10x.projeto1.controller.DTO.request.MissaoRequest;
 import com.java10x.projeto1.controller.DTO.response.MissaoResponse;
 import com.java10x.projeto1.entity.Missao;
-import lombok.RequiredArgsConstructor;
 import lombok.experimental.UtilityClass;
 
 @UtilityClass

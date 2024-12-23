@@ -1,7 +1,5 @@
 package com.java10x.projeto1.controller.DTO.response;
 
-import com.java10x.projeto1.entity.Aldeia;
-import jakarta.validation.constraints.NotNull;
 import lombok.Builder;
 
 import java.util.UUID;

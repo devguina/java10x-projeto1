@@ -5,6 +5,7 @@ import com.java10x.projeto1.controller.DTO.request.NinjaRequest;
 import com.java10x.projeto1.controller.DTO.response.NinjaResponse;
 import com.java10x.projeto1.entity.Ninja;
 import com.java10x.projeto1.service.NinjaService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -22,7 +23,7 @@ public class NinjaController {
 
     // -- create ninja
     @PostMapping("/create")
-    public ResponseEntity<NinjaResponse> createNinja(@RequestBody NinjaRequest ninjaRequest) {
+    public ResponseEntity<NinjaResponse> createNinja(@Valid @RequestBody NinjaRequest ninjaRequest) {
         Ninja ninjaSaved = ninjaService.save(NinjaMapper.toNinja(ninjaRequest));
         return ResponseEntity.ok(NinjaMapper.toNinjaResponse(ninjaSaved));
     }
@@ -55,7 +56,7 @@ public class NinjaController {
 
     // -- update Ninja
     @PutMapping("/update/{id}")
-    public ResponseEntity<NinjaResponse>update(@PathVariable UUID id, @RequestBody NinjaRequest ninjaRequest){
+    public ResponseEntity<NinjaResponse>update(@PathVariable UUID id, @Valid @RequestBody NinjaRequest ninjaRequest){
         return ninjaService.update(id, NinjaMapper.toNinja(ninjaRequest))
                 .map(ninja -> ResponseEntity.ok(NinjaMapper.toNinjaResponse(ninja)))
                 .orElse(ResponseEntity.notFound().build());
