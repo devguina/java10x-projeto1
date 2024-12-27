@@ -25,3 +25,7 @@ spring:
     enabled: true
     locations: ${MIGRATIONS_PATH}
     baseline-on-migrate: true
+
+projeto1:
+  security:
+    secret: "palavra-secreta"
